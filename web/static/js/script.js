@@ -9,7 +9,7 @@ $(function () {
 
             numberOfMovies +=1;
 
-            var nameInput = '<input id="name-"'+numberOfMovies+'type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" />'
+            var nameInput = '<input type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" />'
             var timesInput = '<input id="time-'+numberOfMovies+'" class="mb-2" data-role="timepicker" data-seconds="false" />'
     
             $(nameInput).appendTo('#names');
@@ -24,20 +24,19 @@ $(function () {
 
     $("#schedule").click(function () {
 
-
-        var movieName = $("#name1").val();
-        var movieTime = $("#time1").val();
+        var movieNames = $('.title').map((i, e) => e.value).get();
+        var movieStartTimes = $('[id^="time-"]').map((i, e) => e.value).get();
 
         $.ajax({
             url: "/schedule",
             type: "POST",
             contentType: 'application/json',
             data: JSON.stringify({
-                "movie_name": movieName,
-                "movie_time": movieTime
+                "movie_names": movieNames,
+                "movie_start_times": movieStartTimes
             }),
             success: function (response) {
-                alert(response);
+                console.log(response);
             }
         });
 

@@ -32,9 +32,13 @@ def record_user_preference():
 
 @app.route('/schedule', methods=['POST'])
 def schedule():
-    movie_name = request.json['movie_name']
-    movie_time = request.json['movie_time']
-    return movie_name+movie_time
+    movie_names = list(request.json['movie_names'])
+    movie_start_times = [start_time.split(':')[:-1] for start_time in list(request.json['movie_start_times'])]
+    
+    return jsonify(
+        names=movie_names,
+        movie_start_times=movie_start_times
+    )  
 
 @app.route('/get_best_matches', methods=['POST'])
 def get_best_matches():
