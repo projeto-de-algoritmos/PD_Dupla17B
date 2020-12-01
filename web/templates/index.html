@@ -17,7 +17,7 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
     <script src="{{ url_for('static', filename='js/html5sortable.js') }}">
     </script>
-    <script src="/static/js/script.js?v=s22226"></script>
+    <script src="/static/js/script.js?v=zu4442"></script>
 
 </head>
 
@@ -48,19 +48,17 @@
         <div  class="d-flex align-items-center justify-content-center h-100">
 
         <div class="form-row">
-            <div class="col">
+            <div class="col" id="names">
 
                 <label for="title">Nome</label>
-                <input type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" >
                 <input type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" >
 
             </div>
 
-            <div class="col">
+            <div class="col" id="times">
 
                 <label for="start-time">Hora de inicio</label>
-                <input type="number" class="form-control start-time mb-2" name="start-time" id="start-time" min="0" max="23" placeholder="14" >
-                <input type="number" class="form-control start-time mb-2" name="start-time" id="start-time" min="0" max="23" placeholder="14" >
+                <input type="number" class="form-control start-time mb-2" name="start-time" min="0" max="23" placeholder="14" >
 
             </div>
 

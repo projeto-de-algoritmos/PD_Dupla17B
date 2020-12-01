@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-from countInversions import countInversions
+from moviesScheduling import moviesScheduling
 from flask import request
 from flask_pymongo import PyMongo
 from flask import jsonify
