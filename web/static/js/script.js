@@ -13,13 +13,40 @@ $(function () {
             var timesInput = '<input id="time-'+numberOfMovies+'" class="mb-2" data-role="timepicker" data-seconds="false" />'
     
             $(nameInput).appendTo('#names');
-            $(timesInput).appendTo('#times');
-
-          
+            $(timesInput).appendTo('#times');          
 
         }
 
     });
+
+
+
+
+    $("#schedule").click(function () {
+
+
+        var movieName = $("#name1").val();
+        var movieTime = $("#time1").val();
+
+        $.ajax({
+            url: "/schedule",
+            type: "POST",
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "movie_name": movieName,
+                "movie_time": movieTime
+            }),
+            success: function (response) {
+                alert(response);
+            }
+        });
+
+
+    });
+
+
+
+//-----------------------------------------------
 
 
 

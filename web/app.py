@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-from moviesScheduling import moviesScheduling
+import moviesScheduling
 from flask import request
 from flask_pymongo import PyMongo
 from flask import jsonify
@@ -30,6 +30,11 @@ def record_user_preference():
         {'name': user_name, "preference": base_order, 'contact': user_contact})
     return jsonify(success=True), 200
 
+@app.route('/schedule', methods=['POST'])
+def schedule():
+    movie_name = request.json['movie_name']
+    movie_time = request.json['movie_time']
+    return movie_name+movie_time
 
 @app.route('/get_best_matches', methods=['POST'])
 def get_best_matches():
