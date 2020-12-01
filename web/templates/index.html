@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PAA - Movie Partner Recommendation</title>
+    <title>PAA - Movie Scheduler</title>
     {{ bootstrap.load_css() }}
     <link rel="stylesheet"
         href="{{ url_for('static', filename='css/basscss.css') }}">
@@ -17,13 +17,14 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
     <script src="{{ url_for('static', filename='js/html5sortable.js') }}">
     </script>
-    <script src="/static/js/script.js?v=zu4442"></script>
+    <script src="/static/js/script.js?v=zu44442"></script>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ">
-        <a class="navbar-brand" href="#">PAA - Movie Partner Recommendation</a>
+        <a class="navbar-brand" href="#">PAA - Movie Scheduler</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,32 +49,35 @@
         <div  class="d-flex align-items-center justify-content-center h-100">
 
         <div class="form-row">
-            <div class="col" id="names">
+            <div class="col">
+                <div id="names">
+                    <label for="title">Name</label>
+                    <input type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" >
+                </div>
 
-                <label for="title">Nome</label>
-                <input type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" >
-
+                <button id="find-partner" class="rounded  button navy ">Give me a schedule </button>
             </div>
 
             <div class="col" id="times">
 
-                <label for="start-time">Hora de inicio</label>
-                <input type="number" class="form-control start-time mb-2" name="start-time" min="0" max="23" placeholder="14" >
+                <label for="start-time">Start time</label>
+                <input  class="mb-2" data-role="timepicker" data-seconds="false"> 
 
             </div>
 
         </div>
+        
      </div>
 
     </section>
 
 
     <script type="text/javascript">
-        $(function () {
-            $(".start-time").inputSpinner();
-        });
+
     </script>
     {{ bootstrap.load_js() }}
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@1.13.9/src/bootstrap-input-spinner.min.js"></script>
 </body>
 

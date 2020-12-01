@@ -10,21 +10,16 @@ $(function () {
             numberOfMovies +=1;
 
             var nameInput = '<input id="name-"'+numberOfMovies+'type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" />'
-            var timesInput = '<input id="time-'+numberOfMovies+'" type="number" class="form-control start-time mb-2" name="start-time"  min="0" max="23" placeholder="14" />'
+            var timesInput = '<input id="time-'+numberOfMovies+'" class="mb-2" data-role="timepicker" data-seconds="false" />'
     
             $(nameInput).appendTo('#names');
             $(timesInput).appendTo('#times');
-            $("#time-"+numberOfMovies).inputSpinner();
 
           
 
         }
 
     });
-
-
-
-
 
 
 
