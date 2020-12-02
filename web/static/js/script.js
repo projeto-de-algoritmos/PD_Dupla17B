@@ -2,7 +2,7 @@ $(function () {
 
     var numberOfMovies = 0;
 
-    $.showError = function(failure) { 
+    $.showError = function (failure) {
         $(failure).hide().appendTo('#iterative').fadeIn();
         setTimeout(function () {
             $('#failure').fadeOut();
@@ -10,18 +10,18 @@ $(function () {
         }, 2600);
     }
 
-    $('#names').on('click', ".title" , function() {
-        if (!$(this).val()){
+    $('#names').on('click', ".title", function () {
+        if (!$(this).val()) {
 
-            numberOfMovies +=1;
+            numberOfMovies += 1;
 
             var nameInput = '<input type="text" class="form-control mb-2 title" name="title"  placeholder="Movie name" />'
-            var timesInput = '<input id="time-'+numberOfMovies+'" class="mb-2" data-role="timepicker" data-seconds="false" />'
-    
-            $(nameInput).appendTo('#names');
-            $(timesInput).appendTo('#times');          
+            var timesInput = '<input id="time-' + numberOfMovies + '" class="mb-2" data-role="timepicker" data-seconds="false" />'
 
-        }   
+            $(nameInput).appendTo('#names');
+            $(timesInput).appendTo('#times');
+
+        }
     });
 
 
@@ -32,8 +32,8 @@ $(function () {
         movieNames = movieNames.filter((e) => e != '' && e != ' ')
 
         var movieStartTimes = $('[id^="time-"]').map((i, e) => e.value).get();
-        movieStartTimes.slice(0,movieNames.length)
-        
+        movieStartTimes.slice(0, movieNames.length)
+
         if (!movieNames.join("")) {
             var failure = '<div id="failure" class="ml4 alert alert-danger"><p>You must include at least one movie !</p></div>'
             $.showError(failure)
@@ -53,7 +53,7 @@ $(function () {
             },
             error: function () {
                 var failure = '<div id="failure" class="ml4 alert alert-danger"><p>Movie not found</p></div>'
-                $.showError(failure)         
+                $.showError(failure)
             }
         });
 
