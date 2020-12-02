@@ -36,7 +36,7 @@ $(function () {
                 "movie_start_times": movieStartTimes
             }),
             success: function (response) {
-                console.log(response);
+                $("#result").hide().html(response).fadeIn();
             }
         });
 
