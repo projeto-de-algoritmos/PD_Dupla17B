@@ -1,11 +1,11 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-import moviesScheduling
+from rated_movies_scheduling import RatedMoviesScheduling
 from flask import request
 from flask_pymongo import PyMongo
 from flask import jsonify
 from operator import itemgetter
-
+import requests
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -34,11 +34,23 @@ def record_user_preference():
 def schedule():
     movie_names = list(request.json['movie_names'])
     movie_start_times = [start_time.split(':')[:-1] for start_time in list(request.json['movie_start_times'])]
+    movie_start_times = [int(start_time[0])+float(start_time[1])/60 for start_time in movie_start_times]
     
-    return jsonify(
-        names=movie_names,
-        movie_start_times=movie_start_times
-    )  
+    movies = []
+
+    for movie, start_time in zip(movie_names, movie_start_times):
+        result=requests.get("http://www.omdbapi.com/", params={"t":movie, "apikey":"4a83a64e"}).json()
+        movies.append((
+            start_time, # start time of the movie
+            start_time + float(result['Runtime'].split(' ')[0])/60, # end time of the movie
+            float(result['imdbRating']), # Rating, used as the weidght for scheduling
+            movie # movie name
+        ))
+
+    moviesScheduling = RatedMoviesScheduling(movies)
+    max_weight, best_intervals = moviesScheduling.weighted_interval()
+
+    return jsonify(best_intervals) 
 
 @app.route('/get_best_matches', methods=['POST'])
 def get_best_matches():

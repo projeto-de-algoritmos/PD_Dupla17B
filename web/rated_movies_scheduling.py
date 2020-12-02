@@ -1,6 +1,6 @@
 import bisect
 
-class WeightedIntervalScheduling(object):
+class RatedMoviesScheduling(object):
     def __init__(self, I):
         self.I = sorted(I, key=lambda tup: tup[1])  # (key = lambda tup : tup[1])
         self.OPT = []
