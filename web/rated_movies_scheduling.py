@@ -1,8 +1,10 @@
 import bisect
 
+
 class RatedMoviesScheduling(object):
     def __init__(self, I):
-        self.I = sorted(I, key=lambda tup: tup[1])  # (key = lambda tup : tup[1])
+        # (key = lambda tup : tup[1])
+        self.I = sorted(I, key=lambda tup: tup[1])
         self.OPT = []
         self.solution = []
 
@@ -12,7 +14,8 @@ class RatedMoviesScheduling(object):
         p = []
 
         for i in range(len(self.I)):
-            # finds idx for which to input start[i] in finish times to still be sorted
+            # finds idx for which to input start[i] in finish times to still be
+            # sorted
             idx = bisect.bisect(finish, start[i]) - 1
             p.append(idx)
 
@@ -23,7 +26,8 @@ class RatedMoviesScheduling(object):
             return
 
         else:
-            if (self.I[j][2] + self.compute_opt(self.p[j])) > self.compute_opt(j - 1):
+            if (self.I[j][2] + self.compute_opt(self.p[j])
+                    ) > self.compute_opt(j - 1):
                 self.solution.append(self.I[j])
                 self.find_solution(self.p[j])
 
@@ -39,8 +43,12 @@ class RatedMoviesScheduling(object):
 
         else:
             return max(
-                self.I[j][2] + self.compute_opt(self.p[j]), self.compute_opt(j - 1)
-            )
+                self.I[j][2] +
+                self.compute_opt(
+                    self.p[j]),
+                self.compute_opt(
+                    j -
+                    1))
 
     def weighted_interval(self):
         if len(self.I) == 0:
