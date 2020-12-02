@@ -31,9 +31,9 @@ Mas, se preferir ver o projeto funcionando localmente, para instalar basta segui
 * Instalação manual: Para instalar tudo manualmente, basta executar um ```pip install -r requirements.txt``` e em seguida um  ```python web/app.py```, ambos na raiz do repositório. Feito isso a aplicação estará funcionando no localhost na porta indicada no terminal.
 
 ## Uso
-Passo 1: Inserir os nomes e horarios de inicio de cada filme. Os nomes devem ser em inglês
-Passo 2: Se desejar, você pode selecionar alguma das outras críticas disponíveis para dar notas aos filmes. Por padrão, será a nota do IMDb
-Passo 3: Basta clicar no botão "Give me a schedule" e ver o resultado
-Passo 4: Opcionalmente, você pode clicar em qualquer uma das miniaturas nos resultados para ir até a página do dado filme no IMDb e ler mais sobre ele
+* Passo 1: Inserir os nomes e horarios de inicio de cada filme. Os nomes devem ser em inglês
+* Passo 2: Se desejar, você pode selecionar alguma das outras críticas disponíveis para dar notas aos filmes. Por padrão, será a nota do IMDb
+* Passo 3: Basta clicar no botão "Give me a schedule" e ver o resultado
+* Passo 4: Opcionalmente, você pode clicar em qualquer uma das miniaturas nos resultados para ir até a página do dado filme no IMDb e ler mais sobre ele
 
 
