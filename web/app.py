@@ -27,7 +27,7 @@ def schedule():
             start_time, # start time of the movie
             start_time + float(result['Runtime'].split(' ')[0])/60, # end time of the movie
             float(result['imdbRating']), # Rating, used as the weidght for scheduling
-            movie, # movie name
+            result['Title'], # full movie name
             result['Poster']
         ))
 
