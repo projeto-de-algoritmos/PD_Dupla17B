@@ -49,7 +49,8 @@ def schedule():
             start_time + float(result['Runtime'].split(' ')[0]) / 60, # end time of the movie
             float(result['imdbRating']), # movie rating, used as the weidght for scheduling
             result['Title'], # full movie name
-            result['Poster'] # movie thumbnail 
+            result['Poster'], # movie thumbnail ,
+            f'https://www.imdb.com/title/{result["imdbID"]}' # link to imdb page
         ))
 
     # creating scheduler

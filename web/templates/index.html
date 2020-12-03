@@ -8,14 +8,14 @@
     <title>PAA - Movie Scheduler</title>
     {{ bootstrap.load_css() }}
 
-    <link rel="stylesheet" href="/static/css/style.css?v=23">
+    <link rel="stylesheet" href="/static/css/style.css?v=w23">
     <link rel="stylesheet"
         href="{{ url_for('static', filename='css/basscss.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
-    <script src="/static/js/script.js?v=p222422"></script>
+    <script src="/static/js/script.js?v=w39"></script>
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
 
 </head>
@@ -49,16 +49,17 @@
             <div class="form-row ">
                 <div class="col">
                     <div id="names">
-                        <label for="title">Name</label>
+                        <label for="title" class="h4">Name</label>
                         <input type="text" class="form-control mb-2 title" name="title" placeholder="Movie name">
                     </div>
 
                     <button id="schedule" class="rounded  button navy ">Give me a schedule </button>
+                    
                 </div>
 
                 <div class="col" id="times">
 
-                    <label for="time-1">Start time</label>
+                    <label for="time-1" class="h4">Start time</label>
                     <input id="time-1" class="mb-2" data-role="timepicker" data-seconds="false">
 
                 </div>
