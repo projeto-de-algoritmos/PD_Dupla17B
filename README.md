@@ -15,9 +15,9 @@ Dito isso, este projeto visa te ajudar a decidir quais filmes você poderia assi
 
 
 ## Screenshots
-![screen1](screenshots/screenshot_1.png)
-![screen2](screenshots/screenshot_2.png)
-![screen3](screenshots/screenshot_3.png)
+![screen1](screenshots/screen_1.png)
+![screen2](screenshots/screen_2.png)
+![screen3](screenshots/screen_3.png)
 
 ## Instalação 
 **Linguagem**: Python<br>
