@@ -65,7 +65,7 @@ class RatedMoviesScheduling(object):
             return max(self.movies[j][2] + self.compute_opt(self.p[j]),
                 self.compute_opt(j -1))
 
-    def weighted_interval(self):
+    def select_optimal_schedule(self):
         '''
         Calculates the optimal schedule
         Returns the resulting weight and the movies selected

@@ -57,7 +57,7 @@ def schedule():
     moviesScheduling = RatedMoviesScheduling(movies)
 
     # executing scheduling and getting the best schedule
-    best_schedule = moviesScheduling.weighted_interval()[1]
+    best_schedule = moviesScheduling.select_optimal_schedule()[1]
 
     return render_template(
         'scheduling_result.html',
